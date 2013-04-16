@@ -6,7 +6,7 @@ RPM_VERSION=0.1.0
 DEST_ROOT=${INSTALL_DIR}/opt
 mkdir --mode=0755 -p ${DEST_ROOT}
 cd ${DEST_ROOT}
-tar -xvzpf ${WORKSPACE}/hive/build/hive-${ARTIFACT_VERSION}
+tar -xvzpf ${WORKSPACE}/hive/build/hive-${ARTIFACT_VERSION}.0.tar.gz
 
 cd ${RPM_DIR}
 
