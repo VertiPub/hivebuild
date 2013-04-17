@@ -12,6 +12,15 @@ tar -xvzpf ${WORKSPACE}/hive/build/hive-${NAMED_VERSION}.tar.gz
 mkdir --mode=0755 -p ${INSTALL_DIR}/etc
 cp -rp ${INSTALL_DIR}/opt/hive-${NAMED_VERSION}/conf ${INSTALL_DIR}/etc/hive-${NAMED_VERSION}
 
+# convert all the etc files to config files
+cd ${INSTALL_DIR}
+export CONFIG_FILES=""
+find etc -type f -print | awk '{print "/" $1}' > /tmp/$$.files
+for i in `cat /tmp/$$.files`; do CONFIG_FILES="--config-files $i $CONFIG_FILES "; done
+export CONFIG_FILES
+rm -f /tmp/$$.files
+
+
 cd ${RPM_DIR}
 
 export RPM_NAME=vcc-hive-${ARTIFACT_VERSION}
@@ -26,6 +35,7 @@ fpm --verbose \
 -n ${RPM_NAME} \
 -v ${RPM_VERSION} \
 --iteration ${DATE_STRING} \
+${CONFIG_FILES} \
 --rpm-user root \
 --rpm-group root \
 -C ${INSTALL_DIR} \
