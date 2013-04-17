@@ -9,8 +9,8 @@ DEST_ROOT=${INSTALL_DIR}/opt
 mkdir --mode=0755 -p ${DEST_ROOT}
 cd ${DEST_ROOT}
 tar -xvzpf ${WORKSPACE}/hive/build/hive-${NAMED_VERSION}.tar.gz
-mkdir --mode=0755 -p ${DEST_ROOT}/hive-${NAMED_VERSION/etc
-cp -rp ${INSTALL_DIR}/opt/hive-${NAMED_VERSION}/conf ${DEST_ROOT}/hive-${NAMED_VERSION}/etc/hive-${NAMED_VERSION}
+mkdir --mode=0755 -p ${INSTALL_DIR}/etc
+cp -rp ${INSTALL_DIR}/opt/hive-${NAMED_VERSION}/conf ${INSTALL_DIR}/etc/hive-${NAMED_VERSION}
 
 cd ${RPM_DIR}
 
@@ -29,4 +29,4 @@ fpm --verbose \
 --rpm-user root \
 --rpm-group root \
 -C ${INSTALL_DIR} \
-opt
+opt etc
