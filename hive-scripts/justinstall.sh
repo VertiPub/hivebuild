@@ -1,12 +1,16 @@
 #!/bin/sh -ex
 # deal with the hive artifacts to create a tarball
 RPM_VERSION=0.1.0
+# have to add a 0 since hive doesn't make it's branch names match it's versions
+NAMED_VERSION=${ARTIFACT_VERSION}.0
 
 # convert each tarball into an RPM
 DEST_ROOT=${INSTALL_DIR}/opt
 mkdir --mode=0755 -p ${DEST_ROOT}
 cd ${DEST_ROOT}
-tar -xvzpf ${WORKSPACE}/hive/build/hive-${ARTIFACT_VERSION}.0.tar.gz
+tar -xvzpf ${WORKSPACE}/hive/build/hive-${NAMED_VERSION}.tar.gz
+mkdir --mode=0755 -p ${DEST_ROOT}/hive-${NAMED_VERSION/etc
+cp -rp ${INSTALL_DIR}/opt/hive-${NAMED_VERSION}/conf ${DEST_ROOT}/hive-${NAMED_VERSION}/etc/hive-${NAMED_VERSION}
 
 cd ${RPM_DIR}
 
