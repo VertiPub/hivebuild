@@ -1,4 +1,3 @@
-cat hive-scripts/justinstall.sh
 #!/bin/sh -ex
 # deal with the hive artifacts to create a tarball
 RPM_VERSION=0.1.0
