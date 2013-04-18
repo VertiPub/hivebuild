@@ -1,3 +1,4 @@
+cat hive-scripts/justinstall.sh
 #!/bin/sh -ex
 # deal with the hive artifacts to create a tarball
 RPM_VERSION=0.1.0
@@ -12,6 +13,9 @@ mkdir --mode=0755 -p ${INSTALL_DIR}/etc
 mv ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}/conf ${INSTALL_DIR}/etc/hive-${ARTIFACT_VERSION}
 cd ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}
 ln -s /etc/hive-${ARTIFACT_VERSION} conf
+
+# wb-803 remove slf4j-log4j12-1.6.1.jar
+rm ${INSTALL_DIR}/opt/hive*/lib/slf4j-log4j12-1.6.1.jar
 
 # convert all the etc files to config files
 cd ${INSTALL_DIR}
