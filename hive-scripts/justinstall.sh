@@ -26,6 +26,15 @@ export CONFIG_FILES
 rm -f /tmp/$$.files
 
 
+# convert all the etc files to config files
+cd ${INSTALL_DIR}
+export CONFIG_FILES=""
+find etc -type f -print | awk '{print "/" $1}' > /tmp/$$.files
+for i in `cat /tmp/$$.files`; do CONFIG_FILES="--config-files $i $CONFIG_FILES "; done
+export CONFIG_FILES
+rm -f /tmp/$$.files
+
+
 cd ${RPM_DIR}
 
 export RPM_NAME=vcc-hive-${ARTIFACT_VERSION}
