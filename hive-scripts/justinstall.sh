@@ -16,9 +16,6 @@ ln -s /etc/hive-${ARTIFACT_VERSION} conf
 # wb-803 remove slf4j-log4j12-1.6.1.jar
 rm ${INSTALL_DIR}/opt/hive*/lib/slf4j-log4j12-1.6.1.jar
 
-#wb-803 log4j.properties with overrides in it, used to be jarred in hive-common.jar
-cp ${WORKSPACE}/hive-scripts/hive-log4j.properties ${INSTALL_DIR}/etc/hive-${ARTIFACT_VERSION}
-
 # convert all the etc files to config files
 cd ${INSTALL_DIR}
 export CONFIG_FILES=""
