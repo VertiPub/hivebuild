@@ -35,7 +35,7 @@ fpm --verbose \
 --vendor VertiCloud \
 --provides ${RPM_NAME} \
 --description "${DESCRIPTION}" \
---dependency alti-mysql-connector \
+--depends alti-mysql-connector \
 --replaces vcc-hive \
 -s dir \
 -t rpm \
