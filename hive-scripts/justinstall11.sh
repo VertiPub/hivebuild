@@ -15,6 +15,8 @@ mkdir --mode=0755 -p ${INSTALL_DIR}/etc
 mv ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}/conf ${INSTALL_DIR}/etc/hive-${ARTIFACT_VERSION}
 cd ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}
 ln -s /etc/hive-${ARTIFACT_VERSION} conf
+#fix a missed permission setting on hcat
+chmod 755 hcatalog/bin/hcat
 cd ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}/lib
 ln -s /opt/mysql-connector/mysql-connector.jar mysql-connector.jar
 
