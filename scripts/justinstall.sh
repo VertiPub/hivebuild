@@ -1,6 +1,9 @@
 #!/bin/sh -ex
 # deal with the hive artifacts to create a tarball
-RPM_VERSION=0.1.0
+
+# set the release version to 0.1.0 unless defined
+ALTISCALE_RELEASE=${ALTISCALE_RELEASE:-0.1.0}
+
 # have to add a 0 since hive doesn't make it's branch names match it's versions
 
 # convert each tarball into an RPM
@@ -40,7 +43,7 @@ fpm --verbose \
 -s dir \
 -t rpm \
 -n ${RPM_NAME} \
--v ${RPM_VERSION} \
+-v ${ALTISCALE_RELEASE} \
 --iteration ${DATE_STRING} \
 ${CONFIG_FILES} \
 --rpm-user root \
