@@ -4,7 +4,6 @@
 # set the release version to 0.1.0 unless defined
 ALTISCALE_RELEASE=${ALTISCALE_RELEASE:-0.1.0}
 
-ALTISCALE_RELEASE=0.1.0
 HIVE_VERSION=0.11.0
 # have to add a 0 since hive doesn't make it's branch names match it's versions
 
