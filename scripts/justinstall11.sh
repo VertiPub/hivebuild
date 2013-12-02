@@ -45,6 +45,7 @@ fpm --verbose \
 --description "${DESCRIPTION}" \
 --depends alti-mysql-connector \
 --replaces vcc-hive \
+--depends 'vcc-haddop-2.2.0 >= 2.0.0' \
 -s dir \
 -t rpm \
 -n ${RPM_NAME} \
