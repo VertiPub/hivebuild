@@ -1,10 +1,8 @@
 #!/bin/sh -ex
-# deal with the hive artifacts to create a tarball
+# deal with the hive artifacts to create a tarball ARTIFACT_VERSION is supplied by the ruby wrapper
 ALTISCALE_RELEASE=${ALTISCALE_RELEASE:-0.1.0}
-HIVE_VERSION=0.11.0
+HIVE_VERSION=${ARTIFACT_VERSION:-0.11.0}
 # have to add a 0 since hive doesn't make it's branch names match it's versions
-
-export ARTIFACT_VERSION="${HIVE_VERSION}"
 
 #convert each tarball into an RPM
 DEST_ROOT=${INSTALL_DIR}/opt
