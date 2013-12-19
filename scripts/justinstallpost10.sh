@@ -43,7 +43,7 @@ fpm --verbose \
 -s dir \
 -t rpm \
 -n ${RPM_NAME} \
--v ${ALTISCALE_VERSION} \
+-v ${ALTISCALE_RELEASE} \
 --iteration ${DATE_STRING} \
 ${CONFIG_FILES} \
 --rpm-user root \
