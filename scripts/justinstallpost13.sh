@@ -8,7 +8,11 @@ HIVE_VERSION=${ARTIFACT_VERSION:-0.11.0}
 DEST_ROOT=${INSTALL_DIR}/opt
 mkdir --mode=0755 -p ${DEST_ROOT}
 cd ${DEST_ROOT}
-tar -xvzpf ${WORKSPACE}/hive/packaging/target/hive-${HIVE_VERSION}.tar.gz
+tar -xvzpf ${WORKSPACE}/hive/packaging/target/apache-hive-${HIVE_VERSION}-bin.tar.gz
+tar -xvzpf ${WORKSPACE}/hive/packaging/target/apache-hive-${HIVE_VERSION}-src.tar.gz
+mv apache-hive-${HIVE_VERSION}-bin hive-${HIVE_VERSION}
+mv apache-hive-${HIVE_VERSION}-src hive-${HIVE_VERSION}/src
+
 mkdir --mode=0755 -p ${INSTALL_DIR}/etc
 mv ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}/conf ${INSTALL_DIR}/etc/hive-${ARTIFACT_VERSION}
 cd ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}
@@ -17,9 +21,6 @@ ln -s /etc/hive-${ARTIFACT_VERSION} conf
 chmod 755 hcatalog/bin/hcat
 cd ${INSTALL_DIR}/opt/hive-${ARTIFACT_VERSION}/lib
 ln -s /opt/mysql-connector/mysql-connector.jar mysql-connector.jar
-
-# wb-803 remove slf4j-log4j12-1.6.1.jar
-rm ${INSTALL_DIR}/opt/hive*/lib/slf4j-log4j12-1.6.1.jar
 
 # convert all the etc files to config files
 cd ${INSTALL_DIR}
