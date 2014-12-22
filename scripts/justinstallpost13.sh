@@ -33,7 +33,7 @@ rm -f /tmp/$$.files
 
 cd ${RPM_DIR}
 
-export RPM_NAME="vcc-hive-${HIVE_VERSION}"
+export RPM_NAME="vcc-hive-${HIVE_VERSION}.test.spark12"
 fpm --verbose \
 --maintainer ops@verticloud.com \
 --vendor VertiCloud \
